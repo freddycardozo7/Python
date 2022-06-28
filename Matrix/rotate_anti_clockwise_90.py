@@ -1,8 +1,10 @@
 mat = [[1,2],[3,4]]
 
 def rotateMatrix(mat):
+    # Reverse the elements of each row 
     for row in range(len(mat)):
-        mat[row].reverse()
+        mat[row] = mat[row][len(mat) - 1:] + mat[row][0:len(mat) - 1]
+    for row in range(len(mat)):
         for col in range(row, len(mat)):
             mat[row][col], mat[col][row] = mat[col][row], mat[row][col]
 
